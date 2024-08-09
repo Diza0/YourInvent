@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Responsive Dashboard Design #2 | AsmrProg</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#" class="logo">
+            <i class='bx bxs-bar-chart-square'></i>
+            <div class="logo-name"><span>Your</span>Invent</div>
+        </a>
+        <ul class="side-menu">
+            <li><a href="index.html"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li class="active"><a href="#"><i class='bx bx-shopping-bag' ></i></i>Product</a></li>
+            <li ><a href="analytics.html"><i class='bx bx-line-chart'></i></i>Analytics</a></li>
+            <li><a href="#"><i class='bx bx-message-square-dots'></i>Transaction</a></li>
+            <li ><a href="users.html"><i class='bx bx-group'></i>Users</a></li>
+        
+            <li><a href="trash.html"><i class='bx bx-trash-alt'></i>Trash</a></li>
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="signin.html" class="logout">
+                    <i class='bx bx-log-out-circle'></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" id="search-input" placeholder="Search...">
+                    <div id="popup-menu" style="display: none;">
+                        <ul id="options-list">
+                          <li>Option 1</li>
+                          <li>Option 2</li>
+                          <li>Option 3</li>
+                          <li>Option 4</li>
+                          <li>Option 5</li>
+                          <li>Option 6</li>
+                          <li>Option 7</li>
+                          <li>Option 8</li>
+                          <li>Option 9</li>
+                          <li>Option 10</li>
+                        </ul>
+                    </div>
+                    <script>
+                        const searchInput = document.getElementById('search-input');
+                        const optionsList = document.getElementById('options-list');
+                        const options = optionsList.children;
+                      
+                        searchInput.addEventListener('input', (e) => {
+                          const searchTerm = e.target.value.toLowerCase();
+                          for (let i = 0; i < options.length; i++) {
+                            const option = options[i];
+                            const optionText = option.textContent.toLowerCase();
+                            if (optionText.includes(searchTerm)) {
+                              option.style.display = 'block';
+                            } else {
+                              option.style.display = 'none';
+                            }
+                          }
+                        });
+                      
+                        searchInput.addEventListener('click', () => {
+                          document.getElementById('popup-menu').style.display = 'block';
+                        });
+                      
+                        document.addEventListener('click', (e) => {
+                          if (e.target !== searchInput) {
+                            document.getElementById('popup-menu').style.display = 'none';
+                          }
+                        });
+                      </script>
+
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif" id="menu-button">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+            
+           
+           
+        
+            <a href="#" class="profile">
+                <img src="images/avatar4.jpeg">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>
+            <div class="header">
+                <div class="left">
+                    <h1>PRODUCTS</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="#">
+                                
+                            </a></li>
+                        
+                        <li><a href="#" class="active">Stock</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="report">
+                    <i class='bx bx-cloud-download'></i>
+                    <span>Download CSV</span>
+                </a>
+
+                <div class="and">
+                    <div  class="add-product-container">
+                  <a href="#" class="reports" >
+                    <i class='bx bx-plus'></i>
+                    <span >Add product</span>
+                  </a>
+                  <div class="pop-up-menu" id="pop-up-menu">
+                    <h2>Add Product</h2>
+                    <form id="add-product-form">
+                      <input type="file" id="image-input" accept="image/*">
+                      <label for="image-input">Import Image</label>
+                      <input type="text" id="name-input" placeholder="Product Name">
+                      <input type="text" id="id-input" placeholder="Product ID">
+                      <select id="condition-select">
+                        <option value="">Select Condition</option>
+                        <option value="new">New</option>
+                        <option value="used">Used</option>
+                      </select>
+                      <select id="location-select">
+                        <option value="">Select Location</option>
+                        <option value="location1">Location 1</option>
+                        <option value="location2">Location 2</option>
+                      </select>
+                      <input type="number" id="availability-input" placeholder="Availability">
+                      <input type="number" id="price-input" placeholder="Price">
+                      <button id="submit-btn">Add Product</button>
+                    </form>
+                  </div>
+                </div>
+
+                    <div>
+                <a href="#" class="reports">
+                    <i class='bx bxs-trash-alt'></i>
+                    <span id="delete-btn">Delete</span>
+                </a>
+                </div>
+            </div>
+            </div>
+
+            <!-- End of Insights -->
+
+            <div class="bottom-data">
+                <div class="orders">
+                    <div class="header">
+                        <i class='bx bx-shopping-bag' ></i>
+                        <h3>Products</h3>
+                        <i class='bx bx-filter'></i>
+                        <i class='bx bx-search'></i>
+                    </div>
+                  <div id="dataContainer">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Products</th>
+                                <th>Id</th>
+                                <th>Condition</th>
+                                <th>Location</th>
+                                <th>Available</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                          <tbody id="item-list">
+                            <tr>
+                                <td>
+                                    <input type="checkbox" id="myCheckbox1" name="myCheckbox">
+                                    <label for="myCheckbox"></label>
+                                    <img src="images/product1.jpeg">
+                                    <p>Apple watch</p>
+                                </td>
+                                <td>000122</td>
+                                <td><span class="active">new</span></td>
+                                <td>Warehouse 2</td>
+                                <td>200</td>
+                                <td>Ghc1,000</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" id="myCheckbox2" name="myCheckbox">
+                                    <label for="myCheckbox"></label>
+                                    <img src="images/product2.jpeg">
+                                    <p>Air force</p>
+                                </td>
+                                <td>000077</td>
+                                <td><span class="active">new</span></td>
+                                <td>Warehouse 3</td>
+                                <td>600</td>
+                                <td>Ghc3,500</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="checkbox" id="myCheckbox3" name="myCheckbox">
+                                    <label for="myCheckbox"></label>
+                                    <img src="images/product3.jpeg">
+                                    <p>Shirts</p>
+                                </td>
+                                <td>000566</td>
+                                <td><span class="active">new</span></td>
+                                <td>Warehouse 1</td>
+                                <td>2,000</td>
+                                <td>Ghc400</td>
+                            </tr>
+                            <td>
+                                <input type="checkbox" id="myCheckbox4" name="myCheckbox">
+                                <label for="myCheckbox"></label>
+                                <img src="images/product4.jpeg">
+                                <p>Ceramic cups</p>
+                            </td>
+                            <td>012567</td>
+                            <td><span class="inactive">new</span></td>
+                            <td>Warehouse 1</td>
+                            <td>50</td>
+                            <td>Ghc30</td>
+                        </tr>
+                        <td>
+                            <input type="checkbox" id="myCheckbox5" name="myCheckbox">
+                            <label for="myCheckbox"></label>
+                            <img src="images/product5.jpeg">
+                            <p>Bag</p> 
+                        </td>
+                        <td>000765</td>
+                        <td><span class="active">new</span></td>
+                        <td>Warehouse 2</td>
+                        <td>1000</td>
+                        <td>Ghc100</td>
+                    </tr>
+                    <td>
+                        <input type="checkbox" id="myCheckbox6" name="myCheckbox">
+                        <label for="myCheckbox"></label>
+                        <img src="images/product6.jpeg">
+                        <p>CeraVe</p>
+                    </td>
+                    <td>0007291</td>
+                    <td><span class="active">new</span></td>
+                    <td>Warehouse 5</td>
+                    <td>288</td>
+                    <td>Ghc500</td>
+                   </tr>
+                  <td>
+                    <input type="checkbox" id="myCheckbox7" name="myCheckbox">
+                    <label for="myCheckbox"></label>
+                    <img src="images/product7.jpeg">
+                    <p>Hoodies</p>
+                </td>
+                <td>037452</td>
+                <td><span class="active">new</span></td>
+                <td>Warehouse 1</td>
+                <td>126</td>
+                <td>Ghc150</td>
+                </tr>
+                <td>
+                    <input type="checkbox" id="myCheckbox8" name="myCheckbox">
+                    <label for="myCheckbox"></label>
+                <img src="images/product8.jpeg">
+                <p>The Ordinary Serum</p>
+                </td>
+                <td>065283</td>
+                <td><span class="active">new</span></td>
+                <td>Warehouse 1</td>
+                <td>27</td>
+                <td>Ghc326</td>
+                </tr>
+                        </tbody>
+                    </table>
+                </div> 
+
+              
+              
+                 <script src="index.js"></script>
+                 <script>
+                    const deleteBtn = document.getElementById('delete-btn');
+
+                    deleteBtn.addEventListener('click', function() {
+                    // Add code to delete the item here
+                    // For example, you can use local storage to remove the item
+                    localStorage.removeItem('item');
+
+                    // Redirect to the trash page
+                    window.location.href = 'trash.html';
+                    });
+                 </script>
+
+                 <script>
+                    const itemList = document.getElementById('item-list');
+                    const deleteBtn = document.getElementById('delete-btn');
+
+                    deleteBtn.addEventListener('click', function() {
+                    const checkedItems = itemList.querySelectorAll('input[type="checkbox"]:checked');
+
+                    // Get the values of the checked checkboxes
+                    const itemsToDelete = [];
+                    checkedItems.forEach(function(checkbox) {
+                        itemsToDelete.push(checkbox.value);
+                    });
+
+                    // Perform the delete action (e.g., send a request to a server-side API)
+                    console.log(`Deleting items: ${itemsToDelete.join(', ')}`);
+
+                    // Redirect to the trash page
+                    window.location.href = 'trash.html';
+                    });
+                 </script>
+                 <script>
+                    function toggleCheckboxes(checked) {
+                    dataCheckboxes.forEach((checkbox) => {
+                        checkbox.checked = checked;
+                    });
+                    }
+
+                    selectAllCheckbox.addEventListener('change', () => {
+                    toggleCheckboxes(selectAllCheckbox.checked);
+                    });
+                 </script>
+                
+            </div>
+
+        </main>
+
+    </div>
+
+  
+
+   </body>
+
+</html>

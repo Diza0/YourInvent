@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="admin dashboard.css">
+    
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+<body>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial;
+        }
+        .sidebar{
+          position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 260px;
+            background: rgb(236, 235, 235);
+            
+            transition: all 0.5s ease;
+        }
+        .sidebar.close{
+            width: 58;
+        }
+        .sidebar.close .logo-detail .logo_name{
+            opacity: 0;
+            pointer-events: none;
+        }
+        .sidebar .logo-detail .logo_name{
+           
+            color: rgb(218, 62, 88);
+            font-size: 22px;
+            font-family: 'Courier New', Courier, monospace;
+           
+        }
+        .sidebar .logo-details i{
+            font-size: 30px;
+            color:  rgb(218, 62, 88);
+            height: 50px;
+            min-width: 60px;
+            text-align: center;
+            line-height: 50px;
+            margin-right: 1px;
+        } 
+        .sidebar .logo-details{
+            height: 60px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            color: rgb(218, 62, 88);
+            font-weight: 800;
+            font-size:20px ;
+        }
+        .sidebar .nav-links{
+            height: 100%;
+            padding-top: 30px;
+            font-weight: 600;
+        }
+        .sidebar .nav-links li{
+            position: relative;
+            list-style: none;
+            transition: all 0.4s ease;
+        }
+        .sidebar .nav-links li:hover{
+            background: rgb(255, 116, 139);
+        }
+        .sidebar .nav-links li i{
+            height: 50px;
+            min-width: 60px;
+            text-align: center;
+            line-height: 50px;
+            color: black;
+            font-size: 20px;
+        }
+        .sidebar .nav-links li a{
+            text-decoration: none;
+            display: flex;
+            align-items:center;
+            color: black;
+        }
+        .sidebar .nav-links li i a .link_name{
+            font-size:18px ;
+            font-weight: 400;
+            color: rgb(218, 62, 88);
+            
+        }
+        .sidebar .nav-links .down{
+            margin-top:90px;
+
+        }
+        hr{
+            width: 90%;
+            margin-left: 10px;
+            color: rgb(68, 61, 61);
+        }
+        .home-section{
+            position:relative ;
+            left: 260px;
+            width: calc(100% - 260px) ;
+            height: 100vh;
+            background: #E4E9F7;
+            transition: all 0.5s ease ;
+        }
+        .sidebar.close ~ .home-section{
+            left: 58px;
+            width: calc(100% - 58px) ;
+        }
+        .home-section .home-content{
+            height: 60px;
+            display: flex;
+            align-items: center;
+        }
+        .home-section .home-content i{
+            color: black;
+            font-size: 35px;
+            margin: 0 15px;
+        }
+
+
+    </style>
+     <div class="sidebar ">
+         <div class="logo-details">
+            <i class='bx bxs-bar-chart-square' ></i>
+            <span class="logo_name">YourInvent</span>
+         </div> 
+         <ul class="nav-links">
+            <li>
+                <a href="#">
+                    <i class='bx bxs-grid-alt'></i>
+                    <span class="link_name">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-shopping-bag'></i>
+                    <span class="link_name">Product</span>
+                </a>
+                
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxs-user'></i>
+                    <span class="link_name">Customer</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-receipt'></i>
+                    <span class="link_name">Transaction</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="#">
+                    <i class='bx bx-line-chart' ></i>
+                    <span class="link_name">Statistics</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-notepad'></i>
+                    <span class="link_name">Report</span>
+                </a>
+            </li>
+           
+        <div class="down">
+            <hr>
+            <br>
+            <li>
+                <a href="#">
+                    <i class='bx bx-trash'></i>
+                    <span class="link_name">Trash</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-log-out'></i>
+                    <span class="link_name">Sign out</span>
+                </a>
+            </li>
+        </div>
+         </ul>  
+     </div>
+     <section class="home-section">
+        <div class="home-content">
+            <i class='bx bx-menu'></i>
+            <span class="text"></span>
+        </div>
+     </section>
+     <script>
+        let sidebar = document.querySelector(".sidebar");
+     let sidebarBtn = document.querySelector(".bx-menu");
+     console.log(sidebarBtn);
+     sidebarBtn.addEventListener("click", ()=>{
+        sidebar.classList.toggle("close");
+        });
+     </script> 
+</html> 

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <title>Responsive Dashboard Design #2 | AsmrProg</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#" class="logo">
+            <i class='bx bxs-bar-chart-square'></i>
+            <div class="logo-name"><span>Your</span>Invent</div>
+        </a>
+        <ul class="side-menu">
+            <li><a href="index.html"><i class='bx bxs-dashboard'></i>Dashboard</a></li>
+            <li><a href="products.html"><i class='bx bx-shopping-bag' ></i></i>Product</a></li>
+            <li ><a href="analytics.html"><i class='bx bx-line-chart'></i></i>Analytics</a></li>
+            <li><a href="#"><i class='bx bx-message-square-dots'></i>Transaction</a></li>
+            <li class="active"><a href="#"><i class='bx bx-group'></i>Users</a></li>
+           
+            <li><a href="trash.html"><i class='bx bx-trash-alt'></i>Trash</a></li>
+
+        </ul>
+        <ul class="side-menu">
+            <li>
+                <a href="signin.html" class="logout">
+                    <i class='bx bx-log-out-circle'></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- End of Sidebar -->
+
+    <!-- Main Content -->
+    <div class="content">
+        <!-- Navbar -->
+        <nav>
+            <i class='bx bx-menu'></i>
+            <form action="#">
+                <div class="form-input">
+                    <input type="search" id="search-input" placeholder="Search...">
+                    <div id="popup-menu" style="display: none;">
+                        <ul id="options-list">
+                          <li>Option 1</li>
+                          <li>Option 2</li>
+                          <li>Option 3</li>
+                          <li>Option 4</li>
+                          <li>Option 5</li>
+                          <li>Option 6</li>
+                          <li>Option 7</li>
+                          <li>Option 8</li>
+                          <li>Option 9</li>
+                          <li>Option 10</li>
+                        </ul>
+                    </div>
+                    <script>
+                        const searchInput = document.getElementById('search-input');
+                        const optionsList = document.getElementById('options-list');
+                        const options = optionsList.children;
+                      
+                        searchInput.addEventListener('input', (e) => {
+                          const searchTerm = e.target.value.toLowerCase();
+                          for (let i = 0; i < options.length; i++) {
+                            const option = options[i];
+                            const optionText = option.textContent.toLowerCase();
+                            if (optionText.includes(searchTerm)) {
+                              option.style.display = 'block';
+                            } else {
+                              option.style.display = 'none';
+                            }
+                          }
+                        });
+                      
+                        searchInput.addEventListener('click', () => {
+                          document.getElementById('popup-menu').style.display = 'block';
+                        });
+                      
+                        document.addEventListener('click', (e) => {
+                          if (e.target !== searchInput) {
+                            document.getElementById('popup-menu').style.display = 'none';
+                          }
+                        });
+                      </script>
+
+                    <button class="search-btn" type="submit"><i class='bx bx-search'></i></button>
+                </div>
+            </form>
+            <input type="checkbox" id="theme-toggle" hidden>
+            <label for="theme-toggle" class="theme-toggle"></label>
+            <a href="#" class="notif">
+                <i class='bx bx-bell'></i>
+                <span class="count">12</span>
+            </a>
+           
+
+
+            <a href="#" class="profile">
+                <img src="images/avatar4.jpeg">
+            </a>
+        </nav>
+
+        <!-- End of Navbar -->
+
+        <main>
+            <div class="header">
+                <div class="left">
+                    <h1>Users</h1>
+                    <ul class="breadcrumb">
+                        <li><a href="#">
+                                Inactive
+                            </a></li>
+                        |
+                        <li><a href="#" class="active">Active</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="report">
+                    <i class='bx bx-cloud-download'></i>
+                    <span>Download CSV</span>
+                </a>
+            </div>
+
+            <!-- End of Insights -->
+
+            <div class="bottom-data">
+                <div class="orders">
+                    <div class="header">
+                        <i class='bx bx-user-circle'></i>
+                        <h3>Customers</h3>
+                        <i class='bx bx-filter'></i>
+                        <i class='bx bx-search'></i>
+                    </div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Email</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <img src="images/avatar.jpeg">
+                                    <p>John Mills</p>
+                                </td>
+                                <td>johnM33@gmail.com</td>
+                                <td><span class="active">active</span></td>
+                                <td><i class='bx bx-dots-vertical-rounded'></i></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="images/avatar3.jpeg">
+                                    <p>Melisa keating</p>
+                                </td>
+                                <td>mkeating44@gmail.com</td>
+                                <td><span class="active">active</span></td>
+                                <td><i class='bx bx-dots-vertical-rounded'></i></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <img src="images/avatar2.jpeg">
+                                    <p>Laylah James</p>
+                                </td>
+                                <td>layjay11@gmail.com</td>
+                                <td><span class="active">active</span></td>
+                                <td><i class='bx bx-dots-vertical-rounded'></i></td>
+                            </tr>
+                            <td>
+                                <img src="images/avatar8.jpeg">
+                                <p>Kelly Malvin</p>
+                            </td>
+                            <td>malvinkey000@gmail.com</td>
+                            <td><span class="inactive">inactive</span></td>
+                            <td><i class='bx bx-dots-vertical-rounded'></i></td>
+                        </tr>
+                        <td>
+                            <img src="images/avatar13.jpeg">
+                            <p>Marjorie Smith</p> 
+                        </td>
+                        <td>smithmar99@gmail.com</td>
+                        <td><span class="active">active</span></td>
+                        <td><i class='bx bx-dots-vertical-rounded'></i></td>
+                    </tr>
+                    <td>
+                        <img src="images/avatar7.jpeg">
+                        <p>Mildred Hill</p>
+                    </td>
+                    <td>hillmildred777@gmail.com</td>
+                    <td><span class="active">active</span></td>
+                    <td><i class='bx bx-dots-vertical-rounded'></i></td>
+                   </tr>
+                <td>
+                    <img src="images/avatar6.jpeg">
+                    <p>Mikey Mottey</p>
+                </td>
+                <td>mottey055@gmail.com</td>
+                <td><span class="active">active</span></td>
+                <td><i class='bx bx-dots-vertical-rounded'></i></td>
+                </tr>
+                <td>
+                <img src="images/avatar5.jpeg">
+                <p>Edwin Mark</p>
+                </td>
+                <td>emark123@gmail.com</td>
+                <td><span class="active">active</span></td>
+                <td><i class='bx bx-dots-vertical-rounded'></i></td>
+                </tr>
+                        </tbody>
+                    </table>
+                
+
+              
+              
+                 <script src="index.js"></script>
+                
+            </div>
+
+        </main>
+
+    </div>
+
+    
+    
+
+   </body>
+
+</html>
